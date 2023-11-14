@@ -7,11 +7,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TP4SIM.Entidades.Estados;
-using TP4SIM.Formularios;
-using TP4SIM.Logica;
+using TP5SIM.Entidades.Estados;
+using TP5SIM.Formularios;
+using TP5SIM.Logica;
 
-namespace TP4SIM.Entidades
+namespace TP5SIM.Entidades
 {
     public class Simulacion
     {

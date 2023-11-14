@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TP4SIM.Entidades;
+using TP5SIM.Entidades;
 
-namespace TP4SIM.Logica
+namespace TP5SIM.Logica
 {
     public class LogSimulacion
     {

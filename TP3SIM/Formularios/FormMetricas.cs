@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace TP4SIM.Formularios
+namespace TP5SIM.Formularios
 {
     public partial class FormMetricas : Form
     {   

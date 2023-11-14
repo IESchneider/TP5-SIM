@@ -1,4 +1,4 @@
-﻿namespace TP4SIM
+﻿namespace TP5SIM
 {
     partial class Principal
     {

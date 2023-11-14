@@ -1,4 +1,4 @@
-﻿namespace TP4SIM.Formularios
+﻿namespace TP5SIM.Formularios
 {
     partial class FormMetricas
     {

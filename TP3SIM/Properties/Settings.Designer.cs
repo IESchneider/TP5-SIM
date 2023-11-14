@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TP4SIM.Properties
+namespace TP5SIM.Properties
 {
 
 
