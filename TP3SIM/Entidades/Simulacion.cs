@@ -36,6 +36,7 @@ namespace TP4SIM.Entidades
         public double ProbabilidadPedirLibro { get; set; }
         public double ProbabilidadDevolverLibro { get; set; }
         public double ProbabilidadConsulta { get; set; }
+        public double PasoH { get; set; }
 
         public List<double> tiemposFinLectura = new List<double> { 0 };
 

@@ -371,7 +371,6 @@
             this.label2.Size = new System.Drawing.Size(178, 17);
             this.label2.TabIndex = 18;
             this.label2.Text = "Ingrese las probabilidades:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // gbDatosGenerales
             // 

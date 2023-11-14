@@ -33,18 +33,12 @@ namespace TP4SIM
                 return;
             }
 
-            //txtNumeroSimulaciones.Text = 1000000.ToString();
-            //txtFilaDesde.Text = 0.ToString();
-            //txtFilaHasta.Text = 5000.ToString();
-
             if (!ValidacionDesdeHasta() || !ValidacionMedia() || !ValidacionAB() || !ValidacionesParametros()) return;
 
             // Si validó la información, comenzar la simulación.
 
             ComenzarPrimeraSimulacion();
         }
-
-       
 
         private void ComenzarPrimeraSimulacion()
         {
@@ -63,8 +57,7 @@ namespace TP4SIM
             simulacion.ProbabilidadDevolverLibro = Convert.ToDouble(nrcDevolverLibro.Value);
             simulacion.ProbabilidadConsulta = Convert.ToDouble(nrcConsulta.Value);
             simulacion.ProbabilidadNo = Convert.ToDouble(nrcProbabilidadNo.Value);
-
-
+            simulacion.PasoH = Convert.ToDouble(nrcH.Value);
 
             simulacion.FormularioSimulacion = new FormSimulacion();
 
@@ -92,7 +85,7 @@ namespace TP4SIM
             return true;
         }
         
-            private bool ValidacionDesdeHasta()
+        private bool ValidacionDesdeHasta()
         {
             // Lista de validaciones para los números desde y hasta.
 
@@ -138,6 +131,11 @@ namespace TP4SIM
                 MessageBox.Show("La probabilidad de que una persona se vaya de la biblioteca debe ser mayor a cero, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (Convert.ToDouble(nrcH.Value) == 0.00)
+            {
+                MessageBox.Show("El tamaño del paso debe ser mayor a cero, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             return true;
         }
         private void CargarValoresPorDefecto()
@@ -150,7 +148,7 @@ namespace TP4SIM
 
             nrcProbabilidadNo.Value = 0.60M;
 
-            nrcH.Value = 0.1M;            
+            nrcH.Value = 0.10M;            
         }
 
         private void LimpiarCampos()
