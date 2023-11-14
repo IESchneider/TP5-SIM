@@ -70,6 +70,12 @@
     <Compile Include="Entidades\Estados\DeClientes\SiendoAtendido.cs" />
     <Compile Include="Entidades\Simulacion.cs" />
     <Compile Include="Entidades\Temporal.cs" />
+    <Compile Include="Formularios\FormDiferenciales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormDiferenciales.Designer.cs">
+      <DependentUpon>FormDiferenciales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormMetricas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\FormDiferenciales.resx">
+      <DependentUpon>FormDiferenciales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormMetricas.resx">
       <DependentUpon>FormMetricas.cs</DependentUpon>
     </EmbeddedResource>

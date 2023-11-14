@@ -32,6 +32,10 @@ namespace TP5SIM.Entidades
         public int MediaLectura { get; set; }
         public double A { get; set; }
         public double B { get; set; }
+
+        public double K1{ get; set; }
+        public double K2 { get; set; }
+        public double K3 { get; set; }
         public double ProbabilidadNo { get; set; }
         public double ProbabilidadPedirLibro { get; set; }
         public double ProbabilidadDevolverLibro { get; set; }
@@ -493,7 +497,7 @@ namespace TP5SIM.Entidades
                                     if (fila2.Se_queda == "Si")
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
-                                        fila2.TiempoLectura = log.VariableAleatoriaExponencial(MediaLectura, fila2.RND_TiempoLectura);
+                                        var cantPaginas = log.VariableAleatoriaUniforme(100,350,fila2.RND_TiempoLectura);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 
                                         client.Estado = EnBiblioteca;
@@ -608,6 +612,7 @@ namespace TP5SIM.Entidades
                                     if (fila2.Se_queda == "Si")
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
+                                        var cantPaginas = log.VariableAleatoriaUniforme(100, 350, fila2.RND_TiempoLectura);
                                         fila2.TiempoLectura = log.VariableAleatoriaExponencial(MediaLectura, fila2.RND_TiempoLectura);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 

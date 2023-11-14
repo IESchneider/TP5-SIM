@@ -25,9 +25,8 @@ namespace TP5SIM
         {
             // Revisar que los datos ingresados pasen por todas las validaciones.
 
-            txtFilaDesde.Text = 0.ToString();
 
-            if (txtNumeroSimulaciones.Text.Equals("") || txtFilaDesde.Text.Equals("") || txtFilaHasta.Text.Equals(""))
+            if (txtNumeroSimulaciones.Text.Equals("") ||  txtFilaHasta.Text.Equals(""))
             {
                 MessageBox.Show("No ha ingresado todos los datos requeridos, intente nuevamente.", "Datos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -53,7 +52,6 @@ namespace TP5SIM
             Simulacion simulacion = new Simulacion();
 
             simulacion.CantidadSimulaciones = Convert.ToInt32(txtNumeroSimulaciones.Text.Trim());
-            simulacion.FilaDesde = Convert.ToInt32(txtFilaDesde.Text.Trim());
             simulacion.FilaHasta = Convert.ToInt32(txtFilaHasta.Text.Trim());
             simulacion.MediaClientes = Convert.ToInt32(TxtMediaClientes.Text.Trim());
             simulacion.MediaLectura = Convert.ToInt32(TxtMediaLectura.Text.Trim());
@@ -63,6 +61,9 @@ namespace TP5SIM
             simulacion.ProbabilidadDevolverLibro = Convert.ToDouble(nrcDevolverLibro.Value);
             simulacion.ProbabilidadConsulta = Convert.ToDouble(nrcConsulta.Value);
             simulacion.ProbabilidadNo = Convert.ToDouble(nrcProbabilidadNo.Value);
+            simulacion.K1 = Convert.ToInt32(k1.Text.Trim());
+            simulacion.K2 = Convert.ToInt32(k2.Text.Trim());
+            simulacion.K3 = Convert.ToInt32(k3.Text.Trim());
 
 
 
@@ -97,26 +98,16 @@ namespace TP5SIM
             // Lista de validaciones para los números desde y hasta.
 
             int numeroSimulaciones = Convert.ToInt32(txtNumeroSimulaciones.Text.Trim());
-            int filaDesde = Convert.ToInt32(txtFilaDesde.Text.Trim());
             int filaHasta = Convert.ToInt32(txtFilaHasta.Text.Trim());
 
-            if (filaDesde > numeroSimulaciones || filaHasta > numeroSimulaciones)
+            if (filaHasta > numeroSimulaciones)
             {
                 MessageBox.Show("Las filas a mostrar deben estar dentro del número de simulaciones realizadas, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (filaHasta < filaDesde)
-            {
-                MessageBox.Show("El valor ingresado en la fila de comienzo debe ser menor al de la fila de fin, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
 
-            // Validar que la diferencia de filas ingresada por el usuario sea menor a 500.
-
-            int diferencia = filaHasta - filaDesde;
-
-            if (diferencia > 10000)
+            if (filaHasta > 10000)
             {
                 MessageBox.Show("El valor de filas a mostrar debe ser de hasta 10000, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -138,6 +129,12 @@ namespace TP5SIM
                 MessageBox.Show("La probabilidad de que una persona se vaya de la biblioteca debe ser mayor a cero, intente nuevamente.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            if (Convert.ToInt32(k1.Text.Trim()) <= 0.00 || Convert.ToInt32(k2.Text.Trim()) <= 0.00 || Convert.ToInt32(k3.Text.Trim()) <= 0.00) 
+            {
+                MessageBox.Show("La unidad K tiene que ser mayor que 0 para todos los casos.", "Datos incorrectos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             return true;
         }
         private void CargarValoresPorDefecto()
@@ -154,7 +151,6 @@ namespace TP5SIM
 
         private void LimpiarCampos()
         {
-            txtFilaDesde.Clear();
             txtFilaHasta.Clear();
             txtNumeroSimulaciones.Clear();
         }
