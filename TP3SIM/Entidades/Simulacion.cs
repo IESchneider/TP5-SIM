@@ -7,8 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TP5SIM.Entidades.Estados;
 using TP5SIM.Formularios;
+using TP5SIM.Entidades.Estados;
 using TP5SIM.Logica;
 
 namespace TP5SIM.Entidades
@@ -45,6 +45,8 @@ namespace TP5SIM.Entidades
 
 
         public FormSimulacion FormularioSimulacion { get; set; }
+
+        public FormDiferenciales formDiferenciales = new FormDiferenciales();
         public HashSet<int> iteracionesGrilla { get; set; }
         public DataGridView Grilla { get; set; }
 
@@ -66,12 +68,18 @@ namespace TP5SIM.Entidades
 
         private List<Temporal> TodosLosClientes = new List<Temporal>();
 
+        // Grillas de ecuaciones diferenciales.
+
+        private DataGridView GrillaLectura { get; set; }
+
         // Diccionarios para guardar estados inmutables de los servidores.
 
         readonly Dictionary<string, Libre> estadosLibre = new Dictionary<string, Libre>();
         readonly Dictionary<string, APedidoLibro> estadosAPedidoLibro = new Dictionary<string, APedidoLibro>();
         readonly Dictionary<string, ADevolucionLibro> estadosADevolucionLibro = new Dictionary<string, ADevolucionLibro>();
         readonly Dictionary<string, AConsulta> estadosAConsulta = new Dictionary<string, AConsulta>();
+
+
 
         // Estados inmutables para los clientes que se van generando.
 
@@ -94,6 +102,14 @@ namespace TP5SIM.Entidades
             DataGridView grilla = FormularioSimulacion.DevolverGrilla();
             PrepararGrilla(grilla);
             this.Grilla = grilla;
+
+
+            // Generar grilla de ecuaciones diferenciales y prepararla (mejora rendimiento).
+
+            FormularioSimulacion.formDiferenciales = formDiferenciales;
+
+            this.GrillaLectura = FormularioSimulacion.formDiferenciales.DevolverGrilla();
+            PrepararGrilla(GrillaLectura);
 
             // Obtener iteraciones a agregar en un HashSet para solo agregar en la grilla los valores deseados.
 
@@ -134,6 +150,7 @@ namespace TP5SIM.Entidades
             // Mostrar formulario.
 
             MostrarFormulario(FormularioSimulacion, Grilla);
+            MostrarFormulario(formDiferenciales, GrillaLectura);
         }
 
         private void Inicializar()
@@ -497,7 +514,8 @@ namespace TP5SIM.Entidades
                                     if (fila2.Se_queda == "Si")
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
-                                        var cantPaginas = log.VariableAleatoriaUniforme(100,350,fila2.RND_TiempoLectura);
+                                        var cantPaginas = (int)Math.Ceiling(log.VariableAleatoriaUniforme(100,350,fila2.RND_TiempoLectura));
+                                        fila2.TiempoLectura = EulerLectura(10, fila2.Reloj, cantPaginas);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 
                                         client.Estado = EnBiblioteca;
@@ -612,8 +630,8 @@ namespace TP5SIM.Entidades
                                     if (fila2.Se_queda == "Si")
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
-                                        var cantPaginas = log.VariableAleatoriaUniforme(100, 350, fila2.RND_TiempoLectura);
-                                        fila2.TiempoLectura = log.VariableAleatoriaExponencial(MediaLectura, fila2.RND_TiempoLectura);
+                                        var cantPaginas = (int)Math.Ceiling(log.VariableAleatoriaUniforme(100, 350, fila2.RND_TiempoLectura));
+                                        fila2.TiempoLectura = EulerLectura(10,fila2.Reloj,cantPaginas);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 
                                         client.HoraFinLectura = fila2.ProxFinLectura;
@@ -2142,6 +2160,64 @@ namespace TP5SIM.Entidades
 
             */
 
+        }
+        private double EulerLectura(double h, double t0, int P0)
+        {
+
+            int i = 0;
+
+            double tiempoCuando = 0;
+            double t = t0;
+            double P = P0;
+
+            double Pant;
+            double tsig = t0;
+            double psig = P;
+
+            double diferencia = 9999;
+
+            do
+            {
+                ++i;
+
+                t = tsig;
+                Pant = P;
+                P = psig;
+                tsig = t + h;
+                var diferencial = 0.0;
+                if(P0 >100 && P0 < 200)
+                {
+                    diferencial = (h * (double)(K1 / 5));
+                    psig = P - diferencial;
+                }
+                if (P0 > 200 && P0 < 300)
+                {
+                    diferencial = (h * (double)(K2 / 5));
+                    psig = P - diferencial;
+                }
+                else
+                {
+                    diferencial = (h * (double)(K3 / 5));
+                    psig = P - diferencial;
+                }
+
+                // 27
+                tiempoCuando = t + h;
+
+                GrillaLectura.Rows.Add(
+                    Math.Round(t, 4),
+                    Math.Round(P, 4),
+                    diferencial,
+                    Math.Round(tsig, 4),
+                    Math.Round(psig, 4)
+                    );
+
+            } while (P > 0);
+
+            DataGridViewRow ultimaFila = GrillaLectura.Rows[GrillaLectura.Rows.Count - 1];
+            ultimaFila.DefaultCellStyle.BackColor = Color.Yellow;
+
+            return (double)((tiempoCuando - 10) - t0);
         }
     }
 }

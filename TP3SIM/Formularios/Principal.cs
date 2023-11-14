@@ -14,6 +14,7 @@ namespace TP5SIM
 {
     public partial class Principal : Form
     {
+        public FormDiferenciales formDiferenciales { get; set; }
         public Principal()
         {
             InitializeComponent();
@@ -36,11 +37,13 @@ namespace TP5SIM
             //txtFilaDesde.Text = 0.ToString();
             //txtFilaHasta.Text = 5000.ToString();
 
+
             if (!ValidacionDesdeHasta() || !ValidacionMedia() || !ValidacionAB() || !ValidacionesParametros()) return;
 
             // Si validó la información, comenzar la simulación.
 
             ComenzarPrimeraSimulacion();
+
         }
 
        

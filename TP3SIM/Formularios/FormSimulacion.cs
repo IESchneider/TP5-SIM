@@ -19,7 +19,7 @@ namespace TP5SIM.Formularios
         public string promedioPermanenciaRP { get; set; }
         public string promedioPermanenciaIM { get; set; }
         public string promedioPermanenciaNP { get; set; }
-
+        public FormDiferenciales formDiferenciales { get; set; }
         public FormSimulacion()
         {
             InitializeComponent();

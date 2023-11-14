@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP3SIM.Formularios
+namespace TP5SIM.Formularios
 {
     public partial class FormDiferenciales : Form
     {
         public FormDiferenciales()
         {
             InitializeComponent();
+        }
+        public DataGridView DevolverGrilla()
+        {
+            return dgvLectura;
         }
     }
 }
