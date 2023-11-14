@@ -149,7 +149,8 @@ namespace TP4SIM
             nrcConsulta.Value = 0.10M;
 
             nrcProbabilidadNo.Value = 0.60M;
-            
+
+            nrcH.Value = 0.1M;            
         }
 
         private void LimpiarCampos()
@@ -158,5 +159,6 @@ namespace TP4SIM
             txtFilaHasta.Clear();
             txtNumeroSimulaciones.Clear();
         }
+
     }
 }
