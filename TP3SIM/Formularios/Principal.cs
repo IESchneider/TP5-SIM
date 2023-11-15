@@ -67,7 +67,7 @@ namespace TP5SIM
             simulacion.K1 = Convert.ToInt32(k1.Text.Trim());
             simulacion.K2 = Convert.ToInt32(k2.Text.Trim());
             simulacion.K3 = Convert.ToInt32(k3.Text.Trim());
-
+            simulacion.H = Convert.ToInt32(h.Text.Trim());
 
 
             simulacion.FormularioSimulacion = new FormSimulacion();

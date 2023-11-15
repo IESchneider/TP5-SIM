@@ -36,6 +36,8 @@ namespace TP5SIM.Entidades
         public double K1{ get; set; }
         public double K2 { get; set; }
         public double K3 { get; set; }
+
+        public double H { get; set; }
         public double ProbabilidadNo { get; set; }
         public double ProbabilidadPedirLibro { get; set; }
         public double ProbabilidadDevolverLibro { get; set; }
@@ -513,7 +515,7 @@ namespace TP5SIM.Entidades
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
                                         var cantPaginas = (int)Math.Ceiling(log.VariableAleatoriaUniforme(100,350,fila2.RND_TiempoLectura));
-                                        fila2.TiempoLectura = EulerLectura(10, fila2.Reloj, cantPaginas);
+                                        fila2.TiempoLectura = EulerLectura(H, fila2.Reloj, cantPaginas);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 
                                         client.Estado = EnBiblioteca;
@@ -630,7 +632,7 @@ namespace TP5SIM.Entidades
                                     {
                                         fila2.RND_TiempoLectura = log.GenerarRND();
                                         var cantPaginas = (int)Math.Ceiling(log.VariableAleatoriaUniforme(100, 350, fila2.RND_TiempoLectura));
-                                        fila2.TiempoLectura = EulerLectura(10,fila2.Reloj,cantPaginas);
+                                        fila2.TiempoLectura = EulerLectura(H,fila2.Reloj,cantPaginas);
                                         fila2.ProxFinLectura = fila2.Reloj + fila2.TiempoLectura;
 
                                         client.HoraFinLectura = fila2.ProxFinLectura;

@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.gbPrincipal = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.k3 = new System.Windows.Forms.MaskedTextBox();
+            this.k2 = new System.Windows.Forms.MaskedTextBox();
+            this.k1 = new System.Windows.Forms.MaskedTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtMediaLectura = new System.Windows.Forms.MaskedTextBox();
@@ -59,15 +67,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtMediaClientes = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.k1 = new System.Windows.Forms.MaskedTextBox();
-            this.k2 = new System.Windows.Forms.MaskedTextBox();
-            this.k3 = new System.Windows.Forms.MaskedTextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.h = new System.Windows.Forms.MaskedTextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.gbPrincipal.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -79,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nrcPedirLibro)).BeginInit();
             this.gbDatosGenerales.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbPrincipal
@@ -98,6 +101,95 @@
             this.gbPrincipal.TabIndex = 0;
             this.gbPrincipal.TabStop = false;
             this.gbPrincipal.Text = "Simulación - Linea de Espera";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.h);
+            this.groupBox6.Controls.Add(this.label17);
+            this.groupBox6.Controls.Add(this.label16);
+            this.groupBox6.Controls.Add(this.k3);
+            this.groupBox6.Controls.Add(this.k2);
+            this.groupBox6.Controls.Add(this.k1);
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.label13);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Location = new System.Drawing.Point(557, 268);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(262, 168);
+            this.groupBox6.TabIndex = 21;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Parametros Integracion";
+            // 
+            // k3
+            // 
+            this.k3.Location = new System.Drawing.Point(163, 134);
+            this.k3.Mask = "9999999";
+            this.k3.Name = "k3";
+            this.k3.Size = new System.Drawing.Size(57, 20);
+            this.k3.TabIndex = 21;
+            this.k3.Text = "70";
+            this.k3.ValidatingType = typeof(int);
+            // 
+            // k2
+            // 
+            this.k2.Location = new System.Drawing.Point(163, 108);
+            this.k2.Mask = "9999999";
+            this.k2.Name = "k2";
+            this.k2.Size = new System.Drawing.Size(57, 20);
+            this.k2.TabIndex = 20;
+            this.k2.Text = "90";
+            this.k2.ValidatingType = typeof(int);
+            // 
+            // k1
+            // 
+            this.k1.Location = new System.Drawing.Point(163, 82);
+            this.k1.Mask = "9999999";
+            this.k1.Name = "k1";
+            this.k1.Size = new System.Drawing.Size(57, 20);
+            this.k1.TabIndex = 19;
+            this.k1.Text = "100";
+            this.k1.ValidatingType = typeof(int);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(36, 137);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 17);
+            this.label12.TabIndex = 18;
+            this.label12.Text = ">300 paginas";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(30, 109);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(114, 17);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "200/300 paginas";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(30, 82);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(114, 17);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "100/200 paginas";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(27, 62);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(135, 17);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "Ingrese la variable k";
             // 
             // groupBox2
             // 
@@ -446,91 +538,35 @@
             this.TxtMediaClientes.Text = "4";
             this.TxtMediaClientes.ValidatingType = typeof(int);
             // 
-            // groupBox6
+            // label16
             // 
-            this.groupBox6.Controls.Add(this.k3);
-            this.groupBox6.Controls.Add(this.k2);
-            this.groupBox6.Controls.Add(this.k1);
-            this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Controls.Add(this.label13);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.label15);
-            this.groupBox6.Location = new System.Drawing.Point(557, 268);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(262, 168);
-            this.groupBox6.TabIndex = 21;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Tipo de Atención";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(26, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(136, 17);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "Ingrese la variable h";
             // 
-            // label12
+            // h
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(30, 124);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(94, 17);
-            this.label12.TabIndex = 18;
-            this.label12.Text = ">300 paginas";
+            this.h.Location = new System.Drawing.Point(96, 43);
+            this.h.Mask = "9999999";
+            this.h.Name = "h";
+            this.h.Size = new System.Drawing.Size(57, 20);
+            this.h.TabIndex = 24;
+            this.h.Text = "10";
+            this.h.ValidatingType = typeof(int);
             // 
-            // label13
+            // label17
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(30, 95);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(114, 17);
-            this.label13.TabIndex = 17;
-            this.label13.Text = "200/300 paginas";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(30, 63);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(114, 17);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "100/200 paginas";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(30, 30);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(135, 17);
-            this.label15.TabIndex = 18;
-            this.label15.Text = "Ingrese la variable k";
-            // 
-            // k1
-            // 
-            this.k1.Location = new System.Drawing.Point(163, 60);
-            this.k1.Mask = "9999999";
-            this.k1.Name = "k1";
-            this.k1.Size = new System.Drawing.Size(57, 20);
-            this.k1.TabIndex = 19;
-            this.k1.Text = "100";
-            this.k1.ValidatingType = typeof(int);
-            // 
-            // k2
-            // 
-            this.k2.Location = new System.Drawing.Point(163, 92);
-            this.k2.Mask = "9999999";
-            this.k2.Name = "k2";
-            this.k2.Size = new System.Drawing.Size(57, 20);
-            this.k2.TabIndex = 20;
-            this.k2.Text = "90";
-            this.k2.ValidatingType = typeof(int);
-            // 
-            // k3
-            // 
-            this.k3.Location = new System.Drawing.Point(163, 124);
-            this.k3.Mask = "9999999";
-            this.k3.Name = "k3";
-            this.k3.Size = new System.Drawing.Size(57, 20);
-            this.k3.TabIndex = 21;
-            this.k3.Text = "70";
-            this.k3.ValidatingType = typeof(int);
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(70, 43);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(20, 17);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "h:";
             // 
             // Principal
             // 
@@ -545,6 +581,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajo Práctico 4 - Simulacion";
             this.gbPrincipal.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -562,8 +600,6 @@
             this.gbDatosGenerales.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -609,6 +645,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.MaskedTextBox h;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }
 
