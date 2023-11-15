@@ -51,6 +51,8 @@ namespace TP4SIM.Logica
             return Math.Round(variableAleatoria, 2);
         }
 
+        public double 
+
         public string CalcularTipoAtencion(double random, double pedirLibro, double devolverLibro, double consulta)
         {
             if(random >= 0 && random < pedirLibro)
