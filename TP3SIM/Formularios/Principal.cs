@@ -67,7 +67,7 @@ namespace TP5SIM
             simulacion.K1 = Convert.ToInt32(k1.Text.Trim());
             simulacion.K2 = Convert.ToInt32(k2.Text.Trim());
             simulacion.K3 = Convert.ToInt32(k3.Text.Trim());
-            simulacion.H = Convert.ToInt32(h.Text.Trim());
+            simulacion.H = Convert.ToDouble(H.Text.Trim());
 
 
             simulacion.FormularioSimulacion = new FormSimulacion();
@@ -149,6 +149,7 @@ namespace TP5SIM
             nrcConsulta.Value = 0.10M;
 
             nrcProbabilidadNo.Value = 0.60M;
+            H.Value = 10;
             
         }
 
